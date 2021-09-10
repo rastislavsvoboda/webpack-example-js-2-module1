@@ -6,6 +6,7 @@ const path = require("path");
 var CopyWebpackPlugin = require("copy-webpack-plugin");
 
 module.exports = {
+  entry: './src/main.js',
   mode: "development",
   output: {
     publicPath: "http://localhost:8082/",

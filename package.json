@@ -2,7 +2,7 @@
   "name": "module1",
   "version": "0.1.0",
   "private": true,
-  "main": "main.js",
+  "main": "index.js",
   "scripts": {
     "start": "webpack serve --hot",
     "serve": "vue-cli-service serve",
@@ -29,6 +29,8 @@
     "eslint-plugin-prettier": "^3.3.1",
     "eslint-plugin-vue": "^7.2.0",
     "html-webpack-plugin": "^5.3.2",
+    "postcss-color-function": "^4.1.0",
+    "postcss-vwh": "^1.0.0",
     "prettier": "^2.2.1",
     "sass": "^1.32.7",
     "sass-loader": "^11.0.1",
