@@ -1,5 +1,5 @@
 <template>
-  <div>pokus</div>
+  <div>Module1</div>
   <!-- <div id="nav">
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link>

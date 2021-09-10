@@ -2,8 +2,8 @@ const HtmlWebPackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
 const { VueLoaderPlugin } = require("vue-loader");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 const path = require("path");
-var CopyWebpackPlugin = require("copy-webpack-plugin");
 
 module.exports = {
   mode: "development",
