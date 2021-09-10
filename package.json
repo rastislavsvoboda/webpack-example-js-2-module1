@@ -4,10 +4,11 @@
   "private": true,
   "main": "index.js",
   "scripts": {
-    "start": "webpack serve --hot",
+    "start": "webpack serve",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "start:live": "webpack serve --open --mode development"
   },
   "dependencies": {
     "core-js": "^3.8.3",
