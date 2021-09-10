@@ -14,11 +14,12 @@ module.exports = {
   resolve: {
     alias: {
       Components: path.resolve(__dirname, "src/components/"),
+      // TODO: router does not work! why?
       Router: path.resolve(__dirname, "src/router/"),
       Views: path.resolve(__dirname, "src/views/"),
     },
     // extensions: [".vue", "..."],
-    extensions: [".tsx", ".ts", ".vue", ".jsx", ".js", ".json"]
+    extensions: [".tsx", ".ts", ".vue", ".jsx", ".js", ".json"],
   },
 
   devServer: {
@@ -64,10 +65,6 @@ module.exports = {
           "sass-loader",
         ],
       },
-      // {
-      //   test: /\.s[ac]ss$/i,
-      //   use: ["style-loader", "css-loader", "postcss-loader", "sass-loader"],
-      // },
     ],
   },
 
