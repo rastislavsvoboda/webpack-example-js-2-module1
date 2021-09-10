@@ -2,7 +2,9 @@
   "name": "module1",
   "version": "0.1.0",
   "private": true,
+  "main": "main.js",
   "scripts": {
+    "start": "webpack serve --hot",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
@@ -21,11 +23,17 @@
     "@vue/cli-service": "~5.0.0-beta.3",
     "@vue/compiler-sfc": "^3.0.4",
     "@vue/eslint-config-prettier": "^6.0.0",
+    "clean-webpack-plugin": "^4.0.0",
+    "copy-webpack-plugin": "^9.0.1",
     "eslint": "^7.20.0",
     "eslint-plugin-prettier": "^3.3.1",
     "eslint-plugin-vue": "^7.2.0",
+    "html-webpack-plugin": "^5.3.2",
     "prettier": "^2.2.1",
     "sass": "^1.32.7",
-    "sass-loader": "^11.0.1"
+    "sass-loader": "^11.0.1",
+    "webpack": "^5.52.1",
+    "webpack-cli": "^4.8.0",
+    "webpack-dev-server": "^4.2.0"
   }
 }
