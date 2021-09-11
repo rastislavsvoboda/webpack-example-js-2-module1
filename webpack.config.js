@@ -14,7 +14,6 @@ module.exports = {
   resolve: {
     alias: {
       Components: path.resolve(__dirname, "src/components/"),
-      // TODO: router does not work! why?
       Router: path.resolve(__dirname, "src/router/"),
       Views: path.resolve(__dirname, "src/views/"),
     },

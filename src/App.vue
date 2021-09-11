@@ -1,19 +1,16 @@
 <template>
   <div>Module1</div>
-  <!-- <div id="nav">
+  <div id="nav">
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link>
   </div>
-  <router-view /> -->
-  <HelloWorld></HelloWorld>
+  <router-view />
 </template>
 
 <script>
-import HelloWorld from 'Components/HelloWorld.vue'
 
 export default {
   components: {
-    HelloWorld
   }
 }
 
