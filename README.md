@@ -28,13 +28,14 @@ Vue CLI v5.0.0-beta.3
 
 
 
-* copy webpack.config.js
+* copy `webpack.config.js` and adjust values for: publicPath, port, alias, name, exposes
 
-add to `package.json` 
+* add to `package.json` 
 ```
-    "start": "webpack serve --hot",
+    "start": "webpack serve --open --mode development --hot"
 ```
 
+* install webpack stuff
 ```
 npm i -D webpack webpack-cli webpack-dev-server
 npm i -D clean-webpack-plugin copy-webpack-plugin html-webpack-plugin
@@ -53,8 +54,10 @@ module.exports = {
 }
 ```
 
+* install some additional packages
+
 ```
-npm i -D postcss-color-function postcss-vwh autoprefixer
+npm i -D postcss-color-function postcss-vwh autoprefixer sass sass-loader
 ```
 
 * rename `main.js` to `bootstrap.js`
@@ -63,3 +66,11 @@ npm i -D postcss-color-function postcss-vwh autoprefixer
 ```
 import('./bootstrap')
 ```
+
+
+## start
+
+```
+npm start
+```
+
