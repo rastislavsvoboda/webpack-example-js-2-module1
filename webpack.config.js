@@ -74,7 +74,7 @@ module.exports = {
       filename: "remoteEntry.js",
       remotes: {},
       exposes: {
-        "./HelloWorld": "./src/components/HelloWorld.vue",
+        "./EditPersonBasic": "./src/components/EditPersonBasic.vue",
       },
       shared: require("./package.json").dependencies,
     }),
