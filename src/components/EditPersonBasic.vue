@@ -3,6 +3,9 @@
     <button @click="goBack" class="btn btn-primary">BACK</button>
     <br />
 
+    <div>{{ counter }}</div>
+    <button @click="inc">Increment Counter</button>
+
     <h1>Person - basic data</h1>
     <div v-if="person" class="detail">
       <div class="col-md-4 col-sm-4">
@@ -65,6 +68,8 @@
 </template>
 
 <script>
+import { clickStore } from "appshell/Store";
+
 export default {
   name: "EditPersonBasic",
   props: {
@@ -74,9 +79,18 @@ export default {
     goBack() {
       this.$router.go(-1);
     },
-    mounted() {
-      console.log('EditPersonBasic - mounted');
-    }
+    onMounted() {
+      // TODO: not triggered?
+      console.log("EditPersonBasic - mounted");
+    },
+    inc() {
+      clickStore.incrementCount();
+    },
+  },
+  computed: {
+    counter() {
+      return clickStore.getState().count;
+    },
   },
 };
 </script>

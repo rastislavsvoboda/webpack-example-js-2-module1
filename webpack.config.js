@@ -72,7 +72,9 @@ module.exports = {
     new ModuleFederationPlugin({
       name: "module1",
       filename: "remoteEntry.js",
-      remotes: {},
+      remotes: {
+        "appshell": "appshell@http://localhost:8080/remoteEntry.js"
+      },
       exposes: {
         "./EditPersonBasic": "./src/components/EditPersonBasic.vue",
       },
