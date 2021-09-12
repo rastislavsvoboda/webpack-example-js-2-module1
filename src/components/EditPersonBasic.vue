@@ -59,7 +59,7 @@
         <div class="row">
           <div class="col-md-6 col-sm-6 col-xs-6"></div>
           <div class="col-md-6 col-sm-6 col-xs-6">
-            <button class="btn btn-lg btn-block btn-success">UPDATE</button>
+            <button class="btn btn-lg btn-block btn-success" @click="updatePerson">UPDATE</button>
           </div>
         </div>
       </div>
@@ -69,28 +69,39 @@
 
 <script>
 import { clickStore } from "appshell/Store";
+import usePersonService from "Services/person-service.js";
+const { getPerson } = usePersonService();
 
 export default {
   name: "EditPersonBasic",
-  props: {
-    person: Object,
+  data() {
+    return {
+      person: Object,
+    }
   },
   methods: {
     goBack() {
       this.$router.go(-1);
     },
-    onMounted() {
-      // TODO: not triggered?
-      console.log("EditPersonBasic - mounted");
-    },
     inc() {
       clickStore.incrementCount();
     },
+    async load(id) {
+      this.person = await getPerson(id);
+    },
+    updatePerson() {
+      console.log('TODO: handle update person');
+    }
   },
   computed: {
     counter() {
       return clickStore.getState().count;
     },
+  },
+  async mounted() {
+    console.log("EditPersonBasic - mounted");
+    const id = this.$route.params.id;
+    await this.load(id);
   },
 };
 </script>

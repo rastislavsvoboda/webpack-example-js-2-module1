@@ -1,39 +1,36 @@
 <template>
   <div class="home">
     <img alt="Vue logo" src="assets/logo.png" />
-    <EditPersonBasic :person="person" />
+    <form class="form-edit">
+      <label>Edit person id</label>
+      <input type="text" v-model="id" width="200"/>
+      <button @click.prevent="gotoEdit">Goto Edit</button>
+    </form>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import EditPersonBasic from "Components/EditPersonBasic.vue";
-
 export default {
   name: "Home",
   data() {
     return {
-      // TODO: hardcoded
-      person: {
-        id: 1,
-        first_name: "Leesa",
-        last_name: "Cokayne",
-        avatar:
-          "https://robohash.org/hicnihilcupiditate.png?size=50x50&set=set1",
-        gender: "Male",
-        ssn: "393-28-1313",
-        city: "Laju Kidul",
-        country: "Indonesia",
-        state: null,
-        street_address: "09 Evergreen Park",
-        dob: "1989-10-13",
-        email: "lcokayne0@google.it",
-      }
-
+      id: 1,
     };
   },
-  components: {
-    EditPersonBasic,
+  components: {},
+  methods: {
+    gotoEdit() {
+      this.$router.push({ path: `/person/edit/${this.id}` });
+    },
   },
 };
 </script>
+
+<style  scoped>
+
+.form-edit {
+  width: 200px;
+  margin: auto;
+}
+  
+</style>

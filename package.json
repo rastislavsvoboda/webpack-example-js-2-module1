@@ -11,6 +11,7 @@
     "start:live": "webpack serve --open --mode development"
   },
   "dependencies": {
+    "axios": "^0.21.4",
     "core-js": "^3.8.3",
     "vue": "^3.0.4",
     "vue-router": "^4.0.3"

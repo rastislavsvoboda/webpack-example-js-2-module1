@@ -15,6 +15,7 @@ module.exports = {
     alias: {
       Components: path.resolve(__dirname, "src/components/"),
       Router: path.resolve(__dirname, "src/router/"),
+      Services: path.resolve(__dirname, "src/services/"),
       Views: path.resolve(__dirname, "src/views/"),
     },
     // extensions: [".vue", "..."],
