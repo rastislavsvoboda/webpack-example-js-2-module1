@@ -1,10 +1,10 @@
 <template>
   <div>
-    <button @click="goBack" class="btn btn-primary">BACK</button>
+    <button @click="goBack" class="btn btn-outline-secondary">BACK</button>
     <br />
 
     <div>{{ counter }}</div>
-    <button @click="inc">Increment Counter</button>
+    <button @click="inc" class="btn btn-warning">Increment Counter</button>
 
     <h1>Person - basic data</h1>
     <div v-if="person" class="detail">
@@ -12,55 +12,59 @@
         <img :src="person.avatar" width="75" alt="" class="img-fluid" />
       </div>
       <div class="col-md-4 col-sm-4">
-        <br />
-        First Name:
-        <br />
-        <input v-model="person.first_name" />
-        <br />
-        Last Name:
-        <br />
-        <input v-model="person.last_name" />
-        <br />
-        Gender:
-        <br />
-        <input v-model="person.gender" />
-        <br />
-        Date of birth:
-        <br />
-        <input v-model="person.dob" />
-        <br />
-        Email:
-        <br />
-        <input v-model="person.email" />
-        <br />
-        Social Security Number:
-        <br />
-        <input v-model="person.ssn" />
-        <br />
-        Street Address:
-        <br />
-        <input v-model="person.street_address" />
-        <br />
-        City:
-        <br />
-        <input v-model="person.city" />
-        <br />
-        Country:
-        <br />
-        <input v-model="person.country" />
-        <br />
-        State:
-        <br />
-        <input v-model="person.state" />
+        <div class="govuk-form-group">
+          <label for="first_name">Frist name</label>
+          <input v-model="person.first_name" id="first_name" />
+        </div>
+        
+        <div class="govuk-form-group">
+          <label for="last_name">Last name</label>
+          <input v-model="person.last_name" id="first_name" />
+        </div>
 
-        <br />
-        <br />
+        <div class="govuk-form-group">
+          <label for="gender">Gender</label>
+          <input v-model="person.gender" id="first_name" />
+        </div>
 
+        <div class="govuk-form-group">
+          <label for="dob">Date of birt</label>
+          <input v-model="person.dob" id="first_name" />
+        </div>
+
+        <div class="govuk-form-group">
+          <label for="email"> Email</label>
+          <input v-model="person.email" id="first_name" />
+        </div>
+
+        <div class="govuk-form-group">
+          <label for="ssn">Social Security Number</label>
+          <input v-model="person.ssn" id="first_name" />
+        </div>
+
+        <div class="govuk-form-group">
+          <label for="street_address">Street Address</label>
+          <input v-model="person.street_address" id="first_name" />
+        </div>
+        
+        <div class="govuk-form-group">
+          <label for="city">City</label>
+          <input v-model="person.city" id="first_name" />
+        </div>
+        
+        <div class="govuk-form-group">
+          <label for="country">Country</label>
+          <input v-model="person.country" id="first_name" />
+        </div>
+        
+        <div class="govuk-form-group">
+          <label for="state">State</label>
+          <input v-model="person.state" id="first_name" />
+        </div>
+        
         <div class="row">
-          <div class="col-md-6 col-sm-6 col-xs-6"></div>
-          <div class="col-md-6 col-sm-6 col-xs-6">
-            <button class="btn btn-lg btn-block btn-success" @click="updatePerson">UPDATE</button>
-          </div>
+          <button class="btn btn-primary" @click="updatePerson">UPDATE</button>
+          <button class="btn btn-secondary" @click="cancel">CANCEL</button>
         </div>
       </div>
     </div>
@@ -70,14 +74,14 @@
 <script>
 import { clickStore } from "appshell/Store";
 import usePersonService from "Services/person-service.js";
-const { getPerson } = usePersonService();
+const { getPerson, updatePerson } = usePersonService();
 
 export default {
   name: "EditPersonBasic",
   data() {
     return {
       person: Object,
-    }
+    };
   },
   methods: {
     goBack() {
@@ -89,9 +93,15 @@ export default {
     async load(id) {
       this.person = await getPerson(id);
     },
-    updatePerson() {
-      console.log('TODO: handle update person');
-    }
+    async updatePerson() {
+      const result = await updatePerson(this.person);
+      console.log(result);
+      const msg = `${result.status}: ${result.statusText}`;
+      alert(msg);
+    },
+    cancel() {
+      this.goBack();
+    },
   },
   computed: {
     counter() {
@@ -126,7 +136,83 @@ div {
   padding: 1em;
 }
 
+input {
+    font-family: "Source Sans Pro", "Arial", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: 400;
+    font-size: 16px;
+    font-size: 1rem;
+    line-height: 1.25;
+    box-sizing: border-box;
+    width: 100%;
+    height: 40px;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 5px;
+    border: 2px solid #0b0c0c;
+    border-radius: 0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+label {
+  margin: 0 0 5px;
+  display: block;
+  float: left;
+}
+
+.govuk-form-group {
+  margin-bottom: 15px;
+}
+
 .detail {
   background: rgb(245, 245, 245);
+}
+
+.btn {
+  margin: 2px 5px 0 0;
+  display: inline-block;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  background-color: transparent;
+  border: 1px solid transparent;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  border-radius: 0.25rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+}
+
+.btn-secondary {
+  color: #fff;
+  background-color: #6c757d;
+  border-color: #6c757d;
+}
+
+.btn-warning {
+  color: #000;
+  background-color: #ffc107;
+  border-color: #ffc107;
+}
+
+.btn-outline-secondary {
+  color: #6c757d;
+  border-color: #6c757d;
 }
 </style>

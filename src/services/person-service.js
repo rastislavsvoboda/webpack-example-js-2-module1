@@ -15,8 +15,19 @@ export default function usePersonService() {
     return result.data;
   }
 
+  async function updatePerson(person) {
+    const url = `${API_URL}/person/${person.id}`;
+    try {
+      let result = await axios.put(url, person);
+      return result;
+    } catch (error) {
+      return error.response;
+    }
+  }
+
   return {
     getPersons,
     getPerson,
+    updatePerson,
   };
 }
