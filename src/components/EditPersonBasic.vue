@@ -1,7 +1,6 @@
 <template>
   <div>
     <button @click="goBack" class="btn btn-outline-secondary">BACK</button>
-    <br />
 
     <div>{{ counter }}</div>
     <button @click="inc" class="btn btn-warning">Increment Counter</button>
