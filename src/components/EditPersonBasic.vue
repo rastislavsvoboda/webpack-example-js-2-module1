@@ -63,7 +63,7 @@
         </div>
         
         <div class="row">
-          <button class="btn btn-primary" @click="updatePerson">UPDATE</button>
+          <button class="btn btn-success" @click="updatePerson">UPDATE</button>
           <button class="btn btn-secondary" @click="cancel">CANCEL</button>
         </div>
       </div>
@@ -203,6 +203,12 @@ label {
   color: #fff;
   background-color: #6c757d;
   border-color: #6c757d;
+}
+
+.btn-success {
+    color: #fff;
+    background-color: #198754;
+    border-color: #198754;
 }
 
 .btn-warning {
